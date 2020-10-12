@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanheng.mapper.UsersMapper">
+
+    <!--当返回的是个Users时，就不能使用select * 了，因为数据库里面的标签和Users类的属性名不同，只有在这里进行别名的指定之后，才可以读取出数据-->
+    <select id="list" resultType="com.yuanheng.pojo.Users">
+        select id as id, u_name as username, u_password as password, u_email as email, u_sex as sex, u_state as state, u_code as code, u_role as role from shop_user
+    </select>
+
+    <select id="findById" resultType="com.yuanheng.pojo.Users">
+        select * from shop_user where id = #{id}
+    </select>
+
+</mapper>

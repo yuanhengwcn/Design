@@ -18,11 +18,13 @@
         <property name="property" value="123"/>
     </bean>
 
+    <!--  自动注入是写在需要被注入的类上，不是写在提供注入的类上  -->
     <bean id="sber" class="com.yuanheng.spring.Sber" autowire="byName">
         <property name="name" value="ww"/>
         <property name="age" value="21"/>
     </bean>
 
+    <!---->
     <bean id="studentComplex" class="com.yuanheng.spring.StudentComplex">
         <property name="name" value="ww"/>
         <property name="age" value="21"/>

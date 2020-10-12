@@ -18,6 +18,8 @@
         <module>aop</module>
         <module>shiroDao</module>
         <module>dynamicProxy2</module>
+        <module>beanPostProcessor</module>
+        <module>springMybatis</module>
     </modules>
 
 

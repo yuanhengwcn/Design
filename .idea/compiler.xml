@@ -11,11 +11,15 @@
         <module name="dynamicProxy" />
         <module name="setDI" />
         <module name="shiroDao" />
-        <module name="dynamicProxy2" />
+        <module name="springMybatis" />
         <module name="aop" />
         <module name="factory" />
+        <module name="beanPostProcessor" />
         <module name="complexObject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dynamicProxy2" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
