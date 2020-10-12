@@ -17,6 +17,7 @@
         <module>dynamicProxy</module>
         <module>aop</module>
         <module>shiroDao</module>
+        <module>dynamicProxy2</module>
     </modules>
 
 
