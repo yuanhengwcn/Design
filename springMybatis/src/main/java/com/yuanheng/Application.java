@@ -15,6 +15,10 @@ public class Application {
 
         List<Users> list = usersMapper.list();
 
+        Users users = usersMapper.findById(2);
+
         System.out.println(list);
+
+        System.out.println(users.toString());
     }
 }
