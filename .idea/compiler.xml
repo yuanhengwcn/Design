@@ -15,10 +15,10 @@
         <module name="aop" />
         <module name="factory" />
         <module name="beanPostProcessor" />
-        <module name="complexObject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="complexObject1" target="1.5" />
       <module name="dynamicProxy2" target="11" />
     </bytecodeTargetLevel>
   </component>
