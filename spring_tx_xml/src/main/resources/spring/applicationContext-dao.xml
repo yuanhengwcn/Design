@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--注意，这里的dataSource使用的是ref不是value-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.yuanheng.spring.mybatis.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <bean id="userService" class="com.yuanheng.spring.mybatis.service.UserService" autowire="byType"/>
+
+
+
+    <!--今天的内容只要是这里的事务-->
+    <!--事务管理器，需要配置与SqlSessionFactory一样的dataSource-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--
+        配置事务，W
+        只要insert出了Exception，这个事务就不会进行下去
+    -->
+    <tx:advice transaction-manager="transactionManager" id="myAdvice">
+        <tx:attributes>
+            <tx:method name="insert" rollback-for="Exception"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--注意这里的insert()不是调用者的路径，是定义insert()的类的路径-->
+    <!--配置切面，将事务当做advice通知进行织入，织入到insert()这个方法前-->
+    <aop:config>
+        <aop:pointcut id="myPointcut" expression="execution(* com.yuanheng.spring.mybatis.service.UserService.insert())"/>
+        <aop:advisor advice-ref="myAdvice" pointcut-ref="myPointcut"/>
+    </aop:config>
+
+</beans>

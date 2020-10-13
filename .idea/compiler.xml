@@ -2,19 +2,23 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="staticProxy" />
+        <module name="spring_tx_xml" />
         <module name="singletonPrototype" />
         <module name="dynamicProxy" />
         <module name="setDI" />
         <module name="shiroDao" />
         <module name="springMybatis" />
+        <module name="spring_Mybatis_exercise" />
         <module name="aop" />
         <module name="factory" />
         <module name="beanPostProcessor" />
+        <module name="aop02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

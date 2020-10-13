@@ -17,9 +17,11 @@
         <module>dynamicProxy</module>
         <module>aop</module>
         <module>shiroDao</module>
-        <module>dynamicProxy2</module>
         <module>beanPostProcessor</module>
         <module>springMybatis</module>
+        <module>aop02</module>
+        <module>spring_Mybatis_exercise</module>
+        <module>spring_tx_xml</module>
     </modules>
 
 
