@@ -26,6 +26,8 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
+
+
     <bean id="userService" class="com.yuanheng.spring.mybatis.service.UserService" autowire="byType"/>
 
 
@@ -41,6 +43,8 @@
         只要insert出了Exception，这个事务就不会进行下去
     -->
     <tx:advice transaction-manager="transactionManager" id="myAdvice">
+
+        <!--在这里配置事务特性-->
         <tx:attributes>
             <tx:method name="insert" rollback-for="Exception"/>
         </tx:attributes>

@@ -19,6 +19,7 @@ public class UserService {
     }
 
     public User insert(User user) {
+        //这个user插入进去之后，下面的user就变了，添加上了id
         int result = userMapper.insert(user);
 
         return result > 0 ? user : null;

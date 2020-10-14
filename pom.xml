@@ -22,6 +22,9 @@
         <module>aop02</module>
         <module>spring_Mybatis_exercise</module>
         <module>spring_tx_xml</module>
+        <module>spring_tx_annotation</module>
+        <module>springmvc</module>
+        <module>day04_testJunit</module>
     </modules>
 
 

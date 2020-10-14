@@ -9,8 +9,10 @@
     <bean id="advice" class="com.yuanheng.aop.advice.MyAdvice"/>
 
     <aop:config>
+        <!--配置切入点，切入点的名字方便引用，要进行切入的方法-->
         <aop:pointcut id="myPointcut" expression="execution(public void enjoy())"/>
 
+        <!--指明织入的方法，指明切入的位置（切入点）-->
         <aop:advisor advice-ref="advice" pointcut-ref="myPointcut"/>
     </aop:config>
 
