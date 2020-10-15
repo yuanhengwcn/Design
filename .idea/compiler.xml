@@ -7,20 +7,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dynamicProxy" />
+        <module name="day05_staticResourceForSpringMVC" />
+        <module name="spring_tx_annotation" />
         <module name="springmvc" />
         <module name="springMybatis" />
-        <module name="setDI" />
-        <module name="spring_tx_annotation" />
         <module name="aop" />
+        <module name="setDI" />
+        <module name="day05_springmvcJson" />
+        <module name="day05_springmvc_params" />
         <module name="factory" />
         <module name="shiroDao" />
         <module name="staticProxy" />
         <module name="beanPostProcessor" />
         <module name="singletonPrototype" />
-        <module name="spring_tx_xml" />
+        <module name="dynamicProxy" />
         <module name="aop02" />
         <module name="day04_testJunit" />
+        <module name="spring_tx_xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

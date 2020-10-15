@@ -25,6 +25,9 @@
         <module>spring_tx_annotation</module>
         <module>springmvc</module>
         <module>day04_testJunit</module>
+        <module>day05_springmvc_params</module>
+        <module>day05_staticResourceForSpringMVC</module>
+        <module>day05_springmvcJson</module>
     </modules>
 
 
