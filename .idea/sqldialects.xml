@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/day07_SSM/src/main/resources/com/yuanheng/ssm/mapper/EmployeeMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day07_classProj/src/main/resources/com/yuanheng/ssm/mapper/DepartmentMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day07_classProj/src/main/resources/com/yuanheng/ssm/mapper/EmployeeMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/day07_classProj/src/main/resources/com/yuanheng/ssm/mapper/JobMapper.xml" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/springMybatis/src/main/resources/com/yuanheng/mapper/UsersMapper.xml" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/spring_tx_xml/src/main/resources/com/yuanheng/spring/mybatis/mapper/UserMapper.xml" dialect="MySQL" />
   </component>

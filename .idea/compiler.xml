@@ -10,9 +10,10 @@
         <module name="day05_staticResourceForSpringMVC" />
         <module name="spring_tx_annotation" />
         <module name="springmvc" />
-        <module name="springMybatis" />
+        <module name="day07_SSM" />
         <module name="aop" />
         <module name="setDI" />
+        <module name="day07_classProj" />
         <module name="day05_springmvcJson" />
         <module name="day05_springmvc_params" />
         <module name="factory" />
@@ -22,14 +23,23 @@
         <module name="singletonPrototype" />
         <module name="dynamicProxy" />
         <module name="aop02" />
+        <module name="springMybatis" />
         <module name="day04_testJunit" />
         <module name="spring_tx_xml" />
+        <module name="day06_exceptionHandler" />
+      </profile>
+      <profile name="Annotation profile for day07_classProj" enabled="true">
+        <sourceOutputDir name="../zzzzzz/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../zzzzzz/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zGeneralModule" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="complexObject1" target="1.5" />
       <module name="dynamicProxy2" target="11" />
       <module name="spring_Mybatis_exercise" target="11" />
+      <module name="zGeneralModule" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

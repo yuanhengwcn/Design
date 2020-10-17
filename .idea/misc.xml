@@ -5,12 +5,17 @@
     <file type="web" url="file://$PROJECT_DIR$/day05_springmvc_params" />
     <file type="web" url="file://$PROJECT_DIR$/day05_springmvcJson" />
     <file type="web" url="file://$PROJECT_DIR$/day05_staticResourceForSpringMVC" />
+    <file type="web" url="file://$PROJECT_DIR$/day06_exceptionHandler" />
+    <file type="web" url="file://$PROJECT_DIR$/day07_classProj" />
+    <file type="web" url="file://$PROJECT_DIR$/day07_SSM" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc" />
+    <file type="web" url="file://$PROJECT_DIR$/zGeneralModule" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/zzzzzz/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

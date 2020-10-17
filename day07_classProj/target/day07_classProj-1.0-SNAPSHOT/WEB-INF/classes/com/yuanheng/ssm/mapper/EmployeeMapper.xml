@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuanheng.ssm.mapper.EmployeeMapper">
+
+    <resultMap id="myEmployee" type="Employee">
+        <id property="employeeId" column="employee_id"/>
+        <result property="firstName" column="FIRST_NAME"/>
+        <result property="lastName" column="LAST_NAME"/>
+        <result property="email" column="EMAIL"/>
+        <result property="phoneNumber" column="PHONE_NUMBER"/>
+        <result property="hireDate" column="HIRE_DATE"/>
+        <result property="jobId" column="JOB_ID"/>
+        <result property="salary" column="SALARY"/>
+        <result property="comm" column="COMM"/>
+        <result property="managerId" column="MANAGER_ID"/>
+        <result property="departmentId" column="DEPARTMENT_ID"/>
+        <result property="pic" column="PIC"/>
+    </resultMap>
+
+    <resultMap id="myEmployee2" type="MyEmployee" extends="myEmployee">
+        <result property="departmentName" column="DEPARTMENT_NAME"/>
+        <result property="jobTitle" column="JOB_TITLE"/>
+        <result property="managerName" column="MANAGER_NAME"/>
+    </resultMap>
+
+
+    <select id="list" resultMap="myEmployee2">
+        SELECT e.*, d.DEPARTMENT_NAME, j.JOB_TITLE, CONCAT(e2.FIRST_NAME, ".", e2.LAST_NAME) MANAGER_NAME
+        FROM t_employees e
+
+                 LEFT JOIN t_departments d ON e.DEPARTMENT_ID = d.DEPARTMENT_ID
+
+                 LEFT JOIN t_jobs j ON e.JOB_ID = j.JOB_ID
+
+                 LEFT JOIN t_employees e2 ON e.MANAGER_ID = e2.employee_id
+    </select>
+
+    <select id="search" resultMap="myEmployee2">
+        SELECT e.*, d.DEPARTMENT_NAME, j.JOB_TITLE, CONCAT(e2.FIRST_NAME, ".", e2.LAST_NAME) MANAGER_NAME
+        FROM t_employees e
+
+        LEFT JOIN t_departments d ON e.DEPARTMENT_ID = d.DEPARTMENT_ID
+
+        LEFT JOIN t_jobs j ON e.JOB_ID = j.JOB_ID
+
+        LEFT JOIN t_employees e2 ON e.MANAGER_ID = e2.employee_id
+        <where>
+            <if test="employeeId != null">
+                and e.employee_id = #{employeeId}
+            </if>
+            <if test="firstName != null and firstName != '' ">
+                and concat(e.first_name, e.last_name) like '%${firstName}%'
+            </if>
+            <if test="jobId != null and jobId != '' ">
+                and e.job_id = #{jobId}
+            </if>
+            <if test="departmentId != null">
+                and e.department_id = #{departmentId}
+            </if>
+        </where>
+    </select>
+
+    <delete id="delete">
+        delete
+        from t_employees
+        where employee_id = #{id}
+    </delete>
+
+    <select id="get" resultMap="myEmployee">
+        select *
+        from t_employees
+        where employee_id = #{employeeId}
+    </select>
+
+    <update id="update">
+        update t_employees
+        <set>
+            <if test="firstName != null and firstName != ''">
+                first_name = #{firstName},
+            </if>
+
+            <if test="lastName != null and lastName != ''">
+                last_name = #{lastName},
+            </if>
+
+            <if test="jobId!=null and jobId!=''">
+                job_id = #{jobId},
+            </if>
+            <if test="departmentId!=null">
+                department_id=#{departmentId},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="hireDate!=null">
+                hire_date = #{hireDate},
+            </if>
+            <if test="phoneNumber!=null">
+                phone_number = #{phoneNumber},
+            </if>
+        </set>
+
+        where employee_id = #{employeeId}
+    </update>
+
+
+</mapper>

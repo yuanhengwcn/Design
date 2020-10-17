@@ -28,6 +28,9 @@
         <module>day05_springmvc_params</module>
         <module>day05_staticResourceForSpringMVC</module>
         <module>day05_springmvcJson</module>
+        <module>day06_exceptionHandler</module>
+        <module>day07_SSM</module>
+        <module>day07_classProj</module>
     </modules>
 
 

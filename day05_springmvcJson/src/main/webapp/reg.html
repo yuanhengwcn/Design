@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $(":button[value='注册']").click(function () {
+
+                var json = {
+                    "username":$(":input[name='username']").val(),
+                    "password":$(":input[name='password']").val(),
+                    "gender":$(":input[name='gender']").val(),
+                    "hobby":$(":input[name='hobby']").val(),
+                    "address":$(":input[name='address']").val()
+                };
+
+                alert(JSON.stringify(json));
+
+                $.ajax({
+                    url:"/save",
+                    data:JSON.stringify(json),
+                    type:"post",
+                    contextType:"application/json",
+                    success:function(ret){
+                        alert(ret);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>用户注册</h1>
+<form id="myForm" method="post">
+    用户名:<input type="text" name="username" /><br/>
+    密码：<input type="password" name="password"/><br/>
+    性别：<input type="radio" name="gender" value="男">男<input name="gender" type="radio" value="女">女<br/>
+    爱好：<input name="hobby" type="checkbox"value="吃饭">吃饭
+    <input name="hobby" type="checkbox"  value="睡觉">睡觉
+    <input name="hobby" type="checkbox" value="看电影">看电影<br/>
+    地址：
+    <select name="address">
+        <option  value="上海">上海</option>
+        <option value="广州">广州</option>
+        <option value="河南">河南</option>
+        <option value="山东">山东</option>
+    </select>
+    <br/>
+    <input type="button" value="注册"/><input type="reset" value="重置"/>
+</form>
+</body>
+</html>
