@@ -35,7 +35,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public PageInfo<MyEmployee> page(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
+        //将查询到的所有信息，封装成一个list
         List<MyEmployee> list = employeeMapper.list();
+        //将list放进PageInfo中
         PageInfo<MyEmployee> pageInfo = new PageInfo<>(list);
         System.out.println(pageInfo);
         return pageInfo;
@@ -44,10 +46,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public PageInfo<MyEmployee> page(EmployeeVO employeeVO, Integer pageNum, Integer pageSize) {
+
         PageHelper.startPage(pageNum, pageSize);
+
         Employee employee = new Employee();
         employee.setFirstName(employeeVO.getKeyWord());
         employee.setLastName(employeeVO.getKeyWord());
+        //在employeeVO中将departmentId设置成了String类型的了，所以这里需要进行转换
         if(!StringUtils.isEmpty(employeeVO.getDepartmentId())){
             employee.setDepartmentId(Integer.parseInt(employeeVO.getDepartmentId()));
         }
@@ -58,8 +63,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         //将得到的list传到PageInfo中，自动覆盖响应的属性
         PageInfo<MyEmployee> pageInfo = new PageInfo<>(list);
-
-        System.out.println(pageInfo);
 
         return pageInfo;
 

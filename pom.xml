@@ -31,6 +31,11 @@
         <module>day06_exceptionHandler</module>
         <module>day07_SSM</module>
         <module>day07_classProj</module>
+        <module>weekendWork</module>
+        <module>weekendWorkV2</module>
+        <module>crossOrigin</module>
+        <module>day09_mybatis</module>
+        <module>day09_mybatisAuto</module>
     </modules>
 
 

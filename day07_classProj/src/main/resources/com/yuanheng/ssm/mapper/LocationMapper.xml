@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanheng.ssm.mapper.LocationMapper">
+
+
+    <resultMap id="location" type="Location">
+        <id property="locationId" column="LOCATION_ID"/>
+        <result property="streetAddress" column="STREET_ADDRESS"/>
+        <result property="postalCode" column="POSTAL_CODE"/>
+        <result property="city" column="CITY"/>
+        <result property="stateProvince" column="STATE_PROVINCE"/>
+        <result property="countryId" column="COUNTRY_ID"/>
+    </resultMap>
+
+    <resultMap id="myLocation" type="MyLocation" extends="location">
+        <result property="countryName" column="COUNTRY_NAME"/>
+    </resultMap>
+
+
+    <select id="list" resultMap="myLocation">
+        SELECT l.LOCATION_ID, l.STREET_ADDRESS, l.POSTAL_CODE, l.CITY, l.STATE_PROVINCE, l.COUNTRY_ID, c.COUNTRY_NAME
+        FROM t_locations l
+                 LEFT JOIN t_countries c ON l.COUNTRY_ID = c.COUNTRY_ID
+    </select>
+
+    <select id="search" resultMap="myLocation">
+        SELECT l.LOCATION_ID, l.STREET_ADDRESS, l.POSTAL_CODE, l.CITY, l.STATE_PROVINCE, l.COUNTRY_ID, c.COUNTRY_NAME
+        FROM t_locations l
+        LEFT JOIN t_countries c ON l.COUNTRY_ID = c.COUNTRY_ID
+        <where>
+            <if test="countryName != null and countryName != '' ">
+                and c.COUNTRY_NAME = #{countryName}
+            </if>
+        </where>
+    </select>
+
+    <delete id="delete">
+        delete
+        from t_locations
+        where LOCATION_ID = #{id}
+    </delete>
+
+    <select id="get" resultMap="location">
+        select *
+        from t_locations l
+                 left join t_countries c on l.COUNTRY_ID = c.COUNTRY_ID
+        where LOCATION_ID = #{id}
+    </select>
+
+</mapper>

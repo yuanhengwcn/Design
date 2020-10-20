@@ -15,6 +15,7 @@
             //删除事件
             $("a.btn-delete").click(function () {
                 if (confirm("你确定删除吗？")) {
+
                     location.href = "/employee/delete?id=" + $(this).attr("demo");
                 }
             })
@@ -22,6 +23,7 @@
             //编辑
             $("a.btn-edit").click(function () {
                 if (confirm("你确定编辑吗？")) {
+                    // 点击之后携带信息跳转到/edit接口
                     location.href = "/employee/edit?id=" + $(this).attr("demo");
                 }
             })

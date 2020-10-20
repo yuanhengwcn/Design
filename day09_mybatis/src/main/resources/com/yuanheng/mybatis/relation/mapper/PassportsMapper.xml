@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanheng.mybatis.relation.mapper.PassportsMapper">
+
+    <resultMap id="myPassports" type="com.yuanheng.mybatis.relation.pojo.Passports">
+        <id column="id" property="id"/>
+        <result column="nationality" property="nationality"/>
+        <result column="expire" property="expire"/>
+        <result column="passengers_id" property="passengerId"/>
+        <!--配置当前对象中的属性信息-->
+        <association property="passengers" javaType="com.yuanheng.mybatis.relation.pojo.Passengers">
+            <id property="id" column="passenger_id"/>
+            <result property="name" column="name"/>
+            <result property="sex" column="sex"/>
+            <result property="birthday" column="birthday"/>
+        </association>
+    </resultMap>
+
+    <select id="findById" resultMap="myPassports">
+        select t1.id passenger_id, t1.name, t1.sex, t1.birthday, t2.*
+        from t_passengers t1
+                 join t_passports t2
+                      on t1.passenger_id = t2.id
+        where t2.id = 1
+    </select>
+
+</mapper>

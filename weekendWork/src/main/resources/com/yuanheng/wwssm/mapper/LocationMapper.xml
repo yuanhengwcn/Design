@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanheng.wwssm.mapper.LocationMapper">
+
+
+    <select id="list" resultType="Location">
+        SELECT STREET_ADDRESS as streetAddress, POSTAL_CODE as postalCode, CITY as city, STATE_PROVINCE as stateProvince, c.COUNTRY_NAME as countryName
+
+        FROM t_locations l
+
+                 LEFT JOIN t_countries c
+
+                           ON l.COUNTRY_ID = c.COUNTRY_ID
+    </select>
+
+
+    <select id="search" resultType="Location">
+        SELECT STREET_ADDRESS as streetAddress, POSTAL_CODE as postalCode, CITY as city, STATE_PROVINCE as stateProvince, c.COUNTRY_NAME as countryName
+
+        FROM t_locations l
+
+                 LEFT JOIN t_countries c
+
+                           ON l.COUNTRY_ID = c.COUNTRY_ID
+
+        <where>
+            <if test="countryName != null and countryName != ''">
+                and COUNTRY_NAME = ${countryName}
+            </if>
+        </where>
+    </select>
+
+    <delete id="delete">
+        delete
+        from t_locations
+        where LOCATION_ID = #{countryName}
+    </delete>
+
+
+
+</mapper>

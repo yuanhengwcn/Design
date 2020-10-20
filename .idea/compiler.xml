@@ -8,24 +8,29 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="day05_staticResourceForSpringMVC" />
-        <module name="spring_tx_annotation" />
-        <module name="springmvc" />
         <module name="day07_SSM" />
-        <module name="aop" />
+        <module name="spring_tx_annotation" />
+        <module name="day09_mybatis" />
+        <module name="springmvc" />
+        <module name="springMybatis" />
+        <module name="weekendWorkV2" />
+        <module name="factory" />
         <module name="setDI" />
         <module name="day07_classProj" />
         <module name="day05_springmvcJson" />
+        <module name="aop" />
         <module name="day05_springmvc_params" />
-        <module name="factory" />
+        <module name="weekendWork" />
         <module name="shiroDao" />
         <module name="staticProxy" />
         <module name="beanPostProcessor" />
         <module name="singletonPrototype" />
         <module name="dynamicProxy" />
         <module name="aop02" />
-        <module name="springMybatis" />
+        <module name="crossOrigin" />
         <module name="day04_testJunit" />
         <module name="spring_tx_xml" />
+        <module name="day09_mybatisAuto" />
         <module name="day06_exceptionHandler" />
       </profile>
       <profile name="Annotation profile for day07_classProj" enabled="true">

@@ -46,6 +46,7 @@ public class EmployeeController {
         return "list";
     }
 
+    //在查询接口下面调用的page()方法
     @RequestMapping("/search")
     public String search(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer pageSize, Model model, EmployeeVO employeeVO){
 

@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>编辑员工</title>
+    <title>地点员工</title>
 
     <link href="/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
     <script src="/static/jquery/jquery-3.3.1.min.js"></script>
@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<h1>员工编辑</h1>
+<h1>地点编辑</h1>
 <hr/>
 <%--注意，这里的编辑页面并没有实现保存功能，只是进行了信息的展示--%>
 <form class="form-horizontal">
