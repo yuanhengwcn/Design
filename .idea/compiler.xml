@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="day09_mybatisAutoDemo2" />
         <module name="day05_staticResourceForSpringMVC" />
         <module name="day07_SSM" />
         <module name="spring_tx_annotation" />

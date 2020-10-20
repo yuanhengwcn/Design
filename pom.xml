@@ -36,6 +36,7 @@
         <module>crossOrigin</module>
         <module>day09_mybatis</module>
         <module>day09_mybatisAuto</module>
+        <module>day09_mybatisAutoDemo2</module>
     </modules>
 
 
