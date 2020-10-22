@@ -7,32 +7,36 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="day09_mybatisAutoDemo2" />
-        <module name="day05_staticResourceForSpringMVC" />
-        <module name="day07_SSM" />
-        <module name="spring_tx_annotation" />
-        <module name="day09_mybatis" />
         <module name="springmvc" />
         <module name="springMybatis" />
         <module name="weekendWorkV2" />
+        <module name="day10_quartz" />
+        <module name="staticProxy" />
         <module name="factory" />
         <module name="setDI" />
-        <module name="day07_classProj" />
-        <module name="day05_springmvcJson" />
-        <module name="aop" />
-        <module name="day05_springmvc_params" />
-        <module name="weekendWork" />
-        <module name="shiroDao" />
-        <module name="staticProxy" />
-        <module name="beanPostProcessor" />
-        <module name="singletonPrototype" />
+        <module name="day10_quartz_spring" />
+        <module name="spring_tx_xml" />
         <module name="dynamicProxy" />
         <module name="aop02" />
-        <module name="crossOrigin" />
-        <module name="day04_testJunit" />
-        <module name="spring_tx_xml" />
-        <module name="day09_mybatisAuto" />
         <module name="day06_exceptionHandler" />
+        <module name="day09_mybatisAutoDemo2" />
+        <module name="day10_log4j" />
+        <module name="day05_springmvc_params" />
+        <module name="day05_staticResourceForSpringMVC" />
+        <module name="weekendWork" />
+        <module name="day09_mybatis" />
+        <module name="day07_SSM" />
+        <module name="day05_springmvcJson" />
+        <module name="shiroDao" />
+        <module name="spring_tx_annotation" />
+        <module name="aop" />
+        <module name="day04_testJunit" />
+        <module name="day10_Logback" />
+        <module name="beanPostProcessor" />
+        <module name="day07_classProj" />
+        <module name="day09_mybatisAuto" />
+        <module name="crossOrigin" />
+        <module name="singletonPrototype" />
       </profile>
       <profile name="Annotation profile for day07_classProj" enabled="true">
         <sourceOutputDir name="../zzzzzz/target/generated-sources/annotations" />
@@ -41,10 +45,7 @@
         <module name="zGeneralModule" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="complexObject1" target="1.5" />
-      <module name="dynamicProxy2" target="11" />
-      <module name="spring_Mybatis_exercise" target="11" />
+    <bytecodeTargetLevel target="11">
       <module name="zGeneralModule" target="11" />
     </bytecodeTargetLevel>
   </component>

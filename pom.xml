@@ -37,6 +37,10 @@
         <module>day09_mybatis</module>
         <module>day09_mybatisAuto</module>
         <module>day09_mybatisAutoDemo2</module>
+        <module>day10_log4j</module>
+        <module>day10_Logback</module>
+        <module>day10_quartz_spring</module>
+        <module>day10_quartz</module>
     </modules>
 
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanheng.mybatis.relation.mapper.EmployeeMapper">
+
+
+    <resultMap id="myEmployee" type="com.yuanheng.mybatis.relation.pojo.Employee">
+
+        <id property="employeeId" column="employee_Id"/>
+        <result property="lastName" column="Last_NAME"/>
+        <result property="email" column="EMAIL"/>
+        <result property="departmentId" column="DEPARTMENT_ID"/>
+        <collection property="department" ofType="com.yuanheng.mybatis.relation.pojo.Department">
+            <result property="departmentName" column="DEPARTMENT_NAME"/>
+            <result property="managerId" column="MANAGER_ID"/>
+            <result property="locationId" column="LOCATION_ID"/>
+        </collection>
+
+    </resultMap>
+
+    <select id="findById" resultMap="myEmployee">
+        select e.employee_Id, e.Last_NAME, e.EMAIL, e.DEPARTMENT_ID, d.DEPARTMENT_NAME, d.MANAGER_ID, d.LOCATION_ID
+        from t_employees e
+                 join t_departments d
+                     on e.DEPARTMENT_Id = d.DEPARTMENT_ID
+
+        where e.employee_id = #{id}
+    </select>
+
+</mapper>

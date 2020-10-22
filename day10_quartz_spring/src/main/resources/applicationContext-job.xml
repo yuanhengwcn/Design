@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--定时任务的bean文件-->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="name" value="myJob"/>
+        <property name="group" value="group1"/>
+        <property name="jobClass" value="com.yuanheng.spring.job.SendMailJob"/>
+    </bean>
+
+    <!--触发器的bean-->
+    <!--在这里需要配置jobDetail，以及cronExpression-->
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail"/>
+        <property name="cronExpression" value="0/5 43 17 * * ?"/>
+    </bean>
+
+    <!--定时任务工厂-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers" ref="cronTrigger"/>
+    </bean>
+
+</beans>

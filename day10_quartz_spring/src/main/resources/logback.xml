@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- scan:当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true -->
+<!-- scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。
+	 默认的时间间隔为1分钟。 -->
+<!-- debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
+<configuration  scan="true" scanPeriod="60 seconds" debug="true">
+
+    <property name="log.path" value="C:/Users/Administrator/Desktop/log" />
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} |-[%-5p] in %logger.%M[line-%L] -%m%n"/>
+
+    <!--设置控制台追加-->
+    <appender name = "CONSOLE" class = "ch.qos.logback.core.ConsoleAppender">
+        <!--设置输出到控制台的log等级-->
+        <filter class = "ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>debug</level>
+        </filter>
+        <!--设置编码格式-->
+        <encoder>
+            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!--设置文件追加-->
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <!--指定文件路径-->
+        <file>${log.path}/helloNew.log</file>
+        <encoder>
+            <!--指定追加的格式-->
+            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+        </encoder>
+    </appender>
+
+    <!--这个根是将上面的两个配置都声明一下，同时说明最低的log等级是ALL-->
+    <root level="ALL">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="file"/>
+    </root>
+</configuration>
