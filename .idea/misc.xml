@@ -9,6 +9,8 @@
     <file type="web" url="file://$PROJECT_DIR$/day07_classProj" />
     <file type="web" url="file://$PROJECT_DIR$/day07_SSM" />
     <file type="web" url="file://$PROJECT_DIR$/day09_mybatis" />
+    <file type="web" url="file://$PROJECT_DIR$/day11_homework" />
+    <file type="web" url="file://$PROJECT_DIR$/day11_layUIdb" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc" />
     <file type="web" url="file://$PROJECT_DIR$/weekendWork" />
     <file type="web" url="file://$PROJECT_DIR$/weekendWorkV2" />
@@ -23,6 +25,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/day10_homework/pom.xml" />
         <option value="$PROJECT_DIR$/dynamicProxy2/pom.xml" />
         <option value="$PROJECT_DIR$/spring_Mybatis_exercise/pom.xml" />
       </set>

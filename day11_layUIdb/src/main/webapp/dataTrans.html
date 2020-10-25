@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataTransmission</title>
+    <link href="/static/layui/css/layui.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var arr = [];
+            $(":button:first").click(function () {
+                $(".delete_all").each(function () {
+                    if (this.checked) {
+                        arr.push(this.value);
+                    }
+                })
+                alert(arr);
+            })
+        })
+    </script>
+</head>
+<body>
+
+<input type="button" class="layui-btn-normal layui-btn" value="批量删除">
+
+<!--创建空表格demo-->
+<table id="demo" lay-filter="test"></table>
+
+<script type="text/javascript">
+    layui.use("table", function () {
+        var table = layui.table;
+
+        table.render({
+
+            //指明对哪个表格进行渲染
+            elem: "#demo",
+            //指明由哪个控制器进行接管
+            url: "http://localhost:8080/employee/list",
+            //指明是否分页
+            page: true,
+            cols: [[
+
+
+                /*po中Person类不存在的属性，不必使用field，改用templet进行编写语句*/
+                {
+                    title: "全选", width: 80, templet: function (d) {
+                        return "<input type='checkbox' class='delete_all' value='" + d.employeeId + "' lay-skin='primary'/>";
+                    }
+                }
+                ,
+
+                {field: 'employeeId', title: '编号', width: 80, sort: true}
+                ,
+
+                {
+                    title: '姓名', width: 120, templet: function (d) {
+                        return d.firstName + '.' + d.lastName;
+                    }
+                }
+                ,
+
+                {field: 'email', title: '邮箱', width: 80}
+                ,
+
+                {field: 'phoneNumber', title: '电话', width: 177}
+                ,
+
+                {field: 'hireDate', title: '入职日期', width: 120}
+                ,
+
+                {field: 'jobId', title: '岗位', width: 120}
+                ,
+
+                {field: 'salary', title: '薪水', width: 80}
+                ,
+
+                {field: 'departmentId', title: '部门', width: 130}
+                ,
+
+                {field: 'pic', title: '图片', width: 135}
+                ,
+
+                {
+                    field: '-', title: "操作", width: 185,
+                    templet: function (d) {
+                        return "<a href='javascript:void(0)' onclick='deleteById("
+                            + d.employeeId
+                            + ")' class='layui-btn layui-btn-danger  layui-btn-sm'>删除</a>"
+                            + "<a href='' class='layui-btn layui-btn-normal  layui-btn-sm'>编辑</a>";
+                    }
+                }
+            ]]
+        })
+    })
+
+    function deleteById(id) {
+        alert(id);
+    }
+</script>
+
+</body>
+</html>

@@ -41,6 +41,9 @@
         <module>day10_Logback</module>
         <module>day10_quartz_spring</module>
         <module>day10_quartz</module>
+        <module>day10_homework</module>
+        <module>day11_homework</module>
+        <module>day11_layUIdb</module>
     </modules>
 
 
