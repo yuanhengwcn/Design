@@ -32,6 +32,7 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+
         //1.根据身份信息获取角色
         AdminUser user = (AdminUser) principals.getPrimaryPrincipal();
         List<Role> userRoles = adminUserService.findUserRoles(user.getId());
@@ -60,6 +61,9 @@ public class MyRealm extends AuthorizingRealm {
         //3.返回info对象
         SimpleAuthenticationInfo info = null;
         if (user != null) {
+            //第一个参数可以是user对象，也可以是用户名
+            //第二个参数是从数据库中获取的密码
+            //这里获取的密码与token中的密码进行比对
             info = new SimpleAuthenticationInfo(user, user.getPassword(), ByteSource.Util.bytes("admin123"), "MyRealm");
         }
 
@@ -70,6 +74,7 @@ public class MyRealm extends AuthorizingRealm {
         this.adminUserService = adminUserService;
     }
 
+    //这个主方法，其实跟逻辑无关，只是单纯拿到加盐后的hash值
     public static void main(String[] args) {
         Md5Hash m = new Md5Hash("admin", "admin123", 120);
         System.out.println(m);

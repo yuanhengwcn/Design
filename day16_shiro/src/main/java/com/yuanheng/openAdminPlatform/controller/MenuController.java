@@ -21,6 +21,10 @@ import java.util.stream.Collectors;
  * @CreateTime: 2020-10-29 15:48
  */
 
+/**
+ * 本控制器的增删改方法模拟与数据库交互，未真正实现。
+ * 查询菜单才是真正是实现与数据库交互的操作
+ */
 @RestController
 public class MenuController {
 
