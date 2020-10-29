@@ -2,6 +2,7 @@ package com.yuanheng.complexObject;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.sql.Connection;
 

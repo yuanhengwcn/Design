@@ -39,6 +39,7 @@
         <module name="day09_mybatisAuto" />
         <module name="day11_homework" />
         <module name="singletonPrototype" />
+        <module name="day16_shiro" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">

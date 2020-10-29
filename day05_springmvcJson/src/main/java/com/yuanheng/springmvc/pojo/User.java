@@ -28,6 +28,7 @@ public class User {
     @JsonSerialize(using = MySerializer.class)
     private String desc;
 
+    //不包含空的
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String hobby;
 

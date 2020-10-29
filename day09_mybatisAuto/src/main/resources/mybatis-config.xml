@@ -32,6 +32,6 @@
     <!--加载对应的映射文件-->
     <!--加载对应的映射文件-->
     <mappers>
-        <package name="com.yuanheng.mybatis.mapper"></package>
+        <package name="com.yuanheng.mybatis.mapper"/>
     </mappers>
 </configuration>

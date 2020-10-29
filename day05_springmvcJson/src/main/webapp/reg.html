@@ -19,6 +19,7 @@
 
                 alert(JSON.stringify(json));
 
+                //将JSON对象通过stringify()方法变成了字符串形式的了，在controller中使用@RequestBody注解，指定对象进行接收，转换成对象类型
                 $.ajax({
                     url:"/save",
                     data:JSON.stringify(json),
